@@ -88,6 +88,10 @@ Opens `output.hex` and save the upscaled image as `output.png`.
 ---
 
 ## Simulation Waveform
+RGB
+![Waveform](waveform_rgb.png)
+Grayscale
+![Waveform](waveform_grayscale.png)
 
 
 | Signal | Behavior |
@@ -106,10 +110,10 @@ Opens `output.hex` and save the upscaled image as `output.png`.
 | Format | Grayscale / RGB | Grayscale / RGB |
 | Bit depth | 8-bit | 8-bit |
 
-### Grayscale Result
-| Input | Output |
+### Grayscale and RGB Result
+| Grayscale output | RGB output |
 |---|---|
-| ![Input] | ![Output] |
+| ![Input](output_grayscale.png) | ![Output](output_rgb.png) |
 
 ---
 
