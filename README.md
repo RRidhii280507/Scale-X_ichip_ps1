@@ -32,7 +32,7 @@ Output = (1-a)(1-b)*I(x0,y0) + a(1-b)*I(x0+1,y0)
 
 ### Edge Handling
 Boundary pixels are clamped to avoid out-of-bounds memory access:
-```verilog
+```bash
 x1 = (x0 + 1 < W_IN) ? x0 + 1 : x0;
 y1 = (y0 + 1 < H_IN) ? y0 + 1 : y0;
 ```
