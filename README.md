@@ -20,14 +20,18 @@ Implementation of a parameterized bilinear interpolation image scaling module in
 ### Interpolation Formula
 For each output pixel at (x_out, y_out):
 ```
-x_in = x_out × (W_IN / W_OUT)
-y_in = y_out × (H_IN / H_OUT)
+ I00 = input_image[NO_OF_CHANNELS*(y0*W_IN + x0)+i];
+ I10 = input_image[NO_OF_CHANNELS*(y0*W_IN + x1)+i];
+ I01 = input_image[NO_OF_CHANNELS*(y1*W_IN + x0)+i];
+ I11 = input_image[NO_OF_CHANNELS*(y1*W_IN + x1)+i];
 
-x0 = floor(x_in),  y0 = floor(y_in)
-a = x_in - x0,     b = y_in - y0
+               
+sum =
+ (( ( (1<<FP) - a ) * ( (1<<FP) - b ) * I00 ) +
+ ( a * ( (1<<FP) - b ) * I10 ) +
+ ( ( (1<<FP) - a ) * b * I01 ) +
+ ( a* b * I11 )) >> (2*FP);
 
-Output = (1-a)(1-b)*I(x0,y0) + a(1-b)*I(x0+1,y0)
-       + (1-a)b*I(x0,y0+1)   + a*b*I(x0+1,y0+1)
 ```
 
 ### Edge Handling
